@@ -174,12 +174,6 @@ $config['csrfProtection'] = true;
 
 $config['headers'] = array();
 
-// Log
-$config['log'] = array(
-    'level' => 'DEBUG', // Các mức: DEBUG, INFO, WARNING, ERROR
-    'file'  => storage_path('logs/ckfinder.log') // Đường dẫn tới file log
-);
-
 /*============================== End of Configuration =================================*/
 
 // Config must be returned - do not change it.
