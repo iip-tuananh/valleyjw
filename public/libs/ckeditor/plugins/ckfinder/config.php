@@ -137,7 +137,7 @@ $config['forceAscii'] = false;
 $config['xSendfile'] = false;
 
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_debug
-$config['debug'] = false;
+$config['debug'] = true;
 
 /*==================================== Plugins ========================================*/
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_plugins
@@ -173,6 +173,12 @@ $config['csrfProtection'] = true;
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_headers
 
 $config['headers'] = array();
+
+// Log
+$config['log'] = array(
+    'level' => 'DEBUG', // Các mức: DEBUG, INFO, WARNING, ERROR
+    'file'  => storage_path('logs/ckfinder.log') // Đường dẫn tới file log
+);
 
 /*============================== End of Configuration =================================*/
 
