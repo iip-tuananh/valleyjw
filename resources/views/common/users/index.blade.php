@@ -31,7 +31,7 @@ Danh sách người dùng
 <script>
 	new DATATABLE('table-list', {
 		ajax: {
-			url: '{!! route('User.searchData') !!}',
+			url: '/admin/common/users/searchData',
 			data: function (d, context) {
 				DATATABLE.mergeSearch(d, context);
 			}

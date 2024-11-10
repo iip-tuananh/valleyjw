@@ -79,7 +79,7 @@ Quản lý bài viết
 <script>
     let datatable = new DATATABLE('table-list', {
         ajax: {
-            url: '{!! route('Post.searchData') !!}',
+            url: '/admin/posts/searchData',
             data: function (d, context) {
                 DATATABLE.mergeSearch(d, context);
             }

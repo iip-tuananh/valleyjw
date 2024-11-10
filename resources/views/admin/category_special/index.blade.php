@@ -42,7 +42,7 @@ Quản lý danh mục đặc biệt
 <script>
     let datatable = new DATATABLE('table-list', {
         ajax: {
-            url: '{!! route('category_special.searchData') !!}',
+            url: '/admin/category-special/searchData',
             data: function (d, context) {
                 DATATABLE.mergeSearch(d, context);
             }

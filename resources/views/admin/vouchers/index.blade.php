@@ -42,7 +42,7 @@ Quản lý mã giảm giá
 <script>
     let datatable = new DATATABLE('table-list', {
         ajax: {
-            url: '{!! route('vouchers.searchData') !!}',
+            url: '/admin/vouchers/searchData',
             data: function (d, context) {
                 DATATABLE.mergeSearch(d, context);
             }

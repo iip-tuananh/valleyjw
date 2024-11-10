@@ -39,7 +39,7 @@ Quản lý review khách hàng
 <script>
     let datatable = new DATATABLE('table-list', {
 		ajax: {
-			url: '{!! route('Review.searchData') !!}',
+			url: '/admin/reviews/searchData',
 			data: function (d, context) {
 				DATATABLE.mergeSearch(d, context);
 			}

@@ -37,7 +37,7 @@ Quản lý danh mục đối tác
 <script>
     let datatable = new DATATABLE('table-list', {
         ajax: {
-            url: '{!! route('partners.searchData') !!}',
+            url: '/admin/partners/searchData',
             data: function (d, context) {
                 DATATABLE.mergeSearch(d, context);
             }

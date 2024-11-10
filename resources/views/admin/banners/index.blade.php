@@ -41,7 +41,7 @@ Quản lý banner trang chủ
 <script>
     let datatable = new DATATABLE('table-list', {
         ajax: {
-            url: '{!! route('banners.searchData') !!}',
+            url: '/admin/banner/searchData',
             data: function (d, context) {
                 DATATABLE.mergeSearch(d, context);
             }

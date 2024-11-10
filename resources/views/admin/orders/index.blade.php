@@ -82,7 +82,7 @@ Quản lý đơn hàng
 <script>
     let datatable = new DATATABLE('table-list', {
         ajax: {
-            url: '{!! route('orders.searchData') !!}',
+            url: '/admin/orders/searchData',
             data: function (d, context) {
                 DATATABLE.mergeSearch(d, context);
             }
