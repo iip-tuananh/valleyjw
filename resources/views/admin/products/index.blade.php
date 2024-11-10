@@ -99,7 +99,7 @@
     <script>
         let datatable = new DATATABLE('table-list', {
             ajax: {
-                url: '{!! route('Product.searchData') !!}',
+                url: '{{ route('Product.searchData') }}',
                 data: function (d, context) {
                     DATATABLE.mergeSearch(d, context);
                 }
