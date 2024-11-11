@@ -177,7 +177,7 @@ $config['headers'] = array();
 // Log
 $config['log'] = array(
     'level' => 'DEBUG', // Các mức: DEBUG, INFO, WARNING, ERROR
-    'file'  => '/storage/logs/ckfinder.log' // Đường dẫn tới file log
+    'file'  => __DIR__ . '/../../../../../storage/logs/ckfinder.log'  // Đường dẫn tới file log
 );
 
 /*============================== End of Configuration =================================*/
