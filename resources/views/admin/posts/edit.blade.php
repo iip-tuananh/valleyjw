@@ -30,7 +30,7 @@ Chỉnh sửa bài viết
       data.append('publish', publish);
       $.ajax({
         type: 'POST',
-        url: "{!! route('Post.update', $object->id) !!}",
+        url: "/admin/posts/" + "{{ $object->id }}" + "/update",
         headers: {
           'X-CSRF-TOKEN': CSRF_TOKEN
         },

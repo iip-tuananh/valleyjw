@@ -277,7 +277,7 @@
             })
 
             $scope.submit = function () {
-                let url = "{!! route('Product.add.category.special') !!}";
+                let url = "/admin/products/add-category-special";
                 $scope.loading.submit = true;
                 console.log($scope.product.category_special_ids);
                 $.ajax({

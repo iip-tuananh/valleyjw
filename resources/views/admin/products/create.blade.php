@@ -40,7 +40,7 @@
                 });
                 $.ajax({
                     type: 'POST',
-                    url: "{!! route('Product.store') !!}",
+                    url: "/admin/products",
                     headers: {
                         'X-CSRF-TOKEN': CSRF_TOKEN
                     },

@@ -26,7 +26,7 @@ Thêm mới bài viết
       data.append('publish', publish);
       $.ajax({
         type: 'POST',
-        url: "{!! route('Post.store') !!}",
+        url: "/admin/posts",
         headers: {
           'X-CSRF-TOKEN': CSRF_TOKEN
         },
