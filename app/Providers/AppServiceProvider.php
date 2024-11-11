@@ -29,10 +29,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (config('app.env') !== 'local') {
+        if (config('app.env') != 'local') {
             URL::forceScheme('https');
         }
-        
+
          $config = \App\Model\Admin\Config::with(['image'])->where('id',1)->first();
          view()->share('config', $config);
 
