@@ -136,11 +136,11 @@ class CategoryController extends Controller
 			}
 
 			if($request->image) {
-				FileHelper::uploadFile($request->image, 'categories', $object->id, ThisModel::class, 'image',2);
+				FileHelper::uploadFile($request->image, 'categories', $object->id, ThisModel::class, 'image', 99);
 			}
 
 			if($request->banner) {
-				FileHelper::uploadFile($request->banner, 'category_banners', $object->id, ThisModel::class, 'banner',99);
+				FileHelper::uploadFile($request->banner, 'category_banners', $object->id, ThisModel::class, 'banner', 99);
 			}
 
 			DB::commit();
@@ -243,7 +243,7 @@ class CategoryController extends Controller
 				if($object->image) {
 					FileHelper::forceDeleteFiles($object->image->id, $object->id, ThisModel::class, 'image');
 				}
-				FileHelper::uploadFile($request->image, 'categories', $object->id, ThisModel::class, 'image',2);
+				FileHelper::uploadFile($request->image, 'categories', $object->id, ThisModel::class, 'image', 99);
 			}
 
 			if($request->banner) {
