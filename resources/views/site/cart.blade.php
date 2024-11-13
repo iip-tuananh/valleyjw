@@ -1,6 +1,6 @@
 @extends('site.layouts.master')
 @section('title')
-    <title>Giỏ hàng</title>
+    Giỏ hàng
 @endsection
 
 @section('css')

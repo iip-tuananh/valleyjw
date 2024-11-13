@@ -9,7 +9,7 @@ class Order extends Model
 {
     protected $table = 'orders';
     protected $fillable = ['id', 'customer_name', 'customer_address',
-        'customer_email', 'customer_phone', 'customer_required', 'payment_method', 'created_at', 'updated_at', 'code'];
+        'customer_email', 'customer_phone', 'customer_required', 'payment_method', 'created_at', 'updated_at', 'code', 'discount_code', 'discount_value', 'total_before_discount', 'total_after_discount'];
 
     protected $appends = ['total_price'];
 
@@ -50,9 +50,13 @@ class Order extends Model
 
     public function getTotalPriceAttribute()
     {
+        if ($this->total_after_discount > 0) {
+            return $this->total_after_discount;
+        }
+
         return $this->details->sum(function ($detail) {
             return $detail->price * $detail->qty;
-        });
+        }) - $this->discount_value;
     }
 
     public static function searchByFilter($request)

@@ -14,8 +14,9 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('/gio-hang.html','CartController@index')->name('cart.index');
     Route::post('/update-cart','CartController@updateItem')->name('cart.update.item');
     Route::get('/thanh-toan.html','CartController@checkout')->name('cart.checkout');
-    Route::post('/checkout','CartController@checkoutSubmit')->name('cart.post.checkout');
-    Route::get('/dat-hang-thanh-cong/','CartController@checkoutSuccess')->name('cart.checkout.success');
+    Route::post('/checkout','CartController@checkoutSubmit')->name('cart.submit.order');
+    Route::get('/dat-hang-thanh-cong.html','CartController@checkoutSuccess')->name('cart.checkout.success');
+    Route::post('/apply-voucher','CartController@applyVoucher')->name('cart.apply.voucher');
 
     // Liên hệ
     Route::get('/lien-he.html','FrontController@contactUs')->name('front.contact-us');
