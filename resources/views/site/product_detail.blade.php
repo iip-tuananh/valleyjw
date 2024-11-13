@@ -1,6 +1,9 @@
 @extends('site.layouts.master')
 @section('title')
-    <title>{{ $product->name }}</title>
+    {{ $product->name }}
+@endsection
+@section('description')
+    {{ $product->short_des }}
 @endsection
 
 @section('css')

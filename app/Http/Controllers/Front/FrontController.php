@@ -292,6 +292,7 @@ class FrontController extends Controller
         ->select(['id','name','intro','created_at','slug'])
         ->limit(6)->inRandomOrder()->get();
         $data['blog_title'] = $blog->name;
+        $data['blog_des'] = $blog->intro;
         $data['categories'] = PostCategory::with([
             'posts' => function ($query){
                 $query->where(['status'=>1])->get();

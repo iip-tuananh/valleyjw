@@ -8,7 +8,7 @@
         })(document.documentElement);</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <!-- This site is optimized with the Yoast SEO plugin v21.7 - https://yoast.com/wordpress/plugins/seo/ -->
-    @yield('title')
+    <title>@yield('title')</title>
     <meta name="description" content="">
     <meta name="keywords" content="@yield('title')" />
     <meta name="robots" content="noodp,index,follow" />

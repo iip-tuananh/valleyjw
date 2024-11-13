@@ -1,6 +1,6 @@
 @extends('site.layouts.master')
 @section('title')
-    <title>{{ $blog_title }}</title>
+    {{ $blog_title }}
 @endsection
 
 @section('css')

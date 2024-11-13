@@ -1,6 +1,9 @@
 @extends('site.layouts.master')
 @section('title')
-    <title>{{ $cate_title }}</title>
+    {{ $cate_title }}
+@endsection
+@section('description')
+    {{ $cate_des ?? '' }}
 @endsection
 
 @section('css')

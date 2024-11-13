@@ -1,8 +1,10 @@
 @extends('site.layouts.master')
 @section('title')
-    <title>{{ $category->meta_title ? $category->meta_title : $category->name }}</title>
+    {{ $category->meta_title ? $category->meta_title : $category->name }}
 @endsection
-
+@section('description')
+    {{ $category->meta_des ? $category->meta_des : $category->short_des }}
+@endsection
 @section('css')
 @endsection
 
