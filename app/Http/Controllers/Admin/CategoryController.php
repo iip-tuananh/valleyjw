@@ -124,6 +124,7 @@ class CategoryController extends Controller
 			$object->intro = $request->intro;
 			$object->icon = $request->icon;
 			$object->short_des = $request->short_des;
+			$object->show_home_page = $request->show_home_page ?? 0;
 
 			$object->save();
 
@@ -228,6 +229,7 @@ class CategoryController extends Controller
 			$object->intro = $request->intro;
 			$object->short_des = $request->short_des;
             $object->icon = $request->icon;
+			$object->show_home_page = $request->show_home_page ?? 0;
 
 			$object->save();
 

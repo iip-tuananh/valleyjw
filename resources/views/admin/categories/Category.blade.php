@@ -54,6 +54,7 @@
                 intro: this.intro,
                 short_des: this.short_des,
                 icon: this.icon,
+                show_home_page: this.show_home_page,
             }
             data = jsonToFormData(data);
             let image = this.image.submit_data;

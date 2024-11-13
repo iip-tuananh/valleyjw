@@ -25,6 +25,11 @@ Thêm mới danh mục hàng hóa
   app.controller('CreateCategory', function ($scope, $http) {
     $scope.form = new Category({}, {scope: $scope});
     $scope.loading = {};
+    $scope.show_home_page = [
+            {'name': 'hiển thị', 'value': '1'},
+            {'name': 'không', 'value': '0'},
+        ];
+
     $scope.mode = 'create';
     $scope.submit = function() {
       $scope.loading.submit = true;

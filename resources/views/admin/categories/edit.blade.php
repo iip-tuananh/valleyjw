@@ -23,8 +23,10 @@ Chỉnh sửa danh mục hàng hóa
 <script>
   app.controller('EditCategory', function ($scope, $http) {
     $scope.form = new Category(@json($object), {scope: $scope});
-    console.log($scope.form)
-    // console.log($scope.form);
+    $scope.show_home_page = [
+            {'name': 'hiển thị', 'value': '1'},
+            {'name': 'không', 'value': '0'},
+        ];
 
     $scope.form.all_categories = @json($categories);
     $scope.loading = {};

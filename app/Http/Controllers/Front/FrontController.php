@@ -62,7 +62,7 @@ class FrontController extends Controller
         ->select(['id','name','slug','intro','created_at'])
         ->limit(10)->get();
 
-        $data['productCategories'] = Category::query()->orderBy('sort_order')->get();
+        $data['productCategories'] = Category::query()->where('show_home_page', 1)->orderBy('sort_order')->get();
         $data['vouchers'] = Voucher::query()->where('status', 1)->where('quantity', '>', 0)->where('to_date', '>=', now())->orderBy('created_at', 'desc')->get();
         // block khối ảnh cuối trang
         // $block = Block::query()->find(1);
