@@ -80,7 +80,7 @@ class CategoryController extends Controller
 			[
 				'parent_id' => 'nullable|exists:categories,id',
 				'name' => 'required|max:255',
-				'short_des' => 'nullable|max:255',
+				'short_des' => 'nullable',
 				'intro' => 'nullable',
 //				'image' => 'required|file|mimes:jpg,jpeg,png,webp|max:3000',
 				'banner' => 'nullable|file|mimes:jpg,jpeg,png,webp|max:3000',
@@ -177,7 +177,7 @@ class CategoryController extends Controller
 			[
 				'parent_id' => 'nullable',
 				'name' => 'required|max:255',
-				'short_des' => 'nullable|max:255',
+				'short_des' => 'nullable',
 				'intro' => 'nullable',
 				'image' => 'nullable|file|mimes:jpg,jpeg,png,webp|max:3000',
 				'banner' => 'nullable|file|mimes:jpg,jpeg,png,webp|max:3000',
