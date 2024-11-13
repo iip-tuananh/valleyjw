@@ -97,8 +97,24 @@
                                 <td class="text-center"><% detail.product.name %></td>
                                 <td class="text-center"><% detail.product.price | number %></td>
                                 <td class="text-center"><% detail.qty | number %></td>
-                                <td class="text-center"><% (detail.qty * detail.price) | number %></td>
+                                <td class="text-right"><% (detail.qty * detail.price) | number %></td>
 
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="text-right"><b>Tổng thành tiền: </b></td>
+                                <td class="text-right"><b><% form.total_before_discount | number %></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="text-right"><b>Giảm giá: </b><br>
+                                    <span ng-if="form.discount_code" class="text-danger">
+                                        <i class="fa fa-tag"></i> <% form.discount_code ? 'Voucher: ' + form.discount_code : '' %>
+                                    </span>
+                                </td>
+                                <td class="text-right"><b><% form.discount_value | number %></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="text-right"><b>Thành tiền sau giảm: </b></td>
+                                <td class="text-right"><b><% form.total_after_discount | number %></b></td>
                             </tr>
                             </tbody>
                         </table>
