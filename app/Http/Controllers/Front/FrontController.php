@@ -77,7 +77,12 @@ class FrontController extends Controller
     public function loadProductHomePage(Request $request)
     {
         $category = CategorySpecial::findBySlug($request->handle);
-        $products = $category->products()->with(['image', 'galleries'])->where('status', 1)->limit(10)->orderBy('created_at', 'desc')->get();
+        $products = $category->products()->with([
+            'image', 'galleries',
+            'product_rates' => function($q) {
+                $q->where('status', 2);
+            }
+            ])->where('status', 1)->limit(10)->orderBy('created_at', 'desc')->get();
         $html = '';
         foreach ($products as $product) {
             $html .= view('site.partials.item_product', compact('product', 'category'))->render();
