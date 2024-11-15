@@ -17,7 +17,7 @@
                             </div>
                             <span class="onirvapp-detail-summary-info-stars-text">( <% product.product_rates.length | number %> đánh giá)</span>
                         </div>
-                        <div class="onirvapp-detail-summary-info-avg"><% total_current_rating | number:1 %>/5</div>
+                        <div class="onirvapp-detail-summary-info-avg"><% total_current_rating | number:1  %>/5</div>
                     </div>
                     <div class="onirvapp-detail-summary-lines">
                         <div class="onirvapp-detail-summary-line">
@@ -363,7 +363,7 @@
 <script>
     app.controller('OniReviewController', function($scope, $http) {
         $scope.product = @json($product);
-        $scope.total_current_rating = $scope.product.product_rates.reduce((total, rate) => total + rate.rating, 0) / $scope.product.product_rates.length;
+        $scope.total_current_rating = $scope.product.product_rates.reduce((total, rate) => total + rate.rating, 0) / $scope.product.product_rates.length || 0;
 
         $scope.five_star_rate = $scope.product.product_rates.filter(rate => rate.rating == 5).length;
         $scope.four_star_rate = $scope.product.product_rates.filter(rate => rate.rating == 4).length;
