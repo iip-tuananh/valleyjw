@@ -67,6 +67,12 @@
                             <p>Thêm mới hàng hóa</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('product_rates.index') }}" class="nav-link {{ Request::routeIs('product_rates.index') ? 'active' : '' }}">
+                            <i class="far fas  fa-angle-right nav-icon"></i>
+                            <p>Đánh giá sản phẩm</p>
+                        </a>
+                    </li>
                 </ul>
             </li>
 

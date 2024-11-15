@@ -51,13 +51,13 @@
                                     </h1>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="filter-mb">
-                                            <button class="filter-mb-btn btn borderFilterMobile"
+                                            {{-- <button class="filter-mb-btn btn borderFilterMobile"
                                                 onclick="initFilter('open')">
                                                 <span class="filter-icon">
                                                     <i class="fal fa-filter"></i>
                                                 </span>
                                                 <span>Bộ lọc</span>
-                                            </button>
+                                            </button> --}}
                                         </div>
                                         <div class="option browse-tags">
                                             <label class="lb-filter hide" for="sort-by">Sắp xếp theo:</label>
@@ -79,13 +79,13 @@
                                                     <option value="best-selling"
                                                         data-filter="&sortby=(sold_quantity:product=desc)">Bán chạy nhất
                                                     </option>
-                                                    <option value="quantity-descending">Tồn kho: Giảm dần</option>
+                                                    {{-- <option value="quantity-descending">Tồn kho: Giảm dần</option> --}}
                                                 </select>
                                             </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="wrap-filter">
+                                {{-- <div class="wrap-filter">
                                     <div class="box_sidebar">
                                         <div class="header">
                                             <span>FILTER</span>
@@ -531,9 +531,9 @@
                                             }
                                         })
                                     </script>
-                                </div>
+                                </div> --}}
                             </div>
-                            <div class="layered_filter_tags">
+                            {{-- <div class="layered_filter_tags">
                                 <div class="filter_tags">
                                     Thương hiệu: <b></b>
                                     <span class="filter_tags_remove">
@@ -575,7 +575,7 @@
                                     </span>
                                 </div>
                                 <div class="filter_tags filter_tags_remove_all"><span>Xóa hết </span></div>
-                            </div>
+                            </div> --}}
                             <div class="alert-no-filter"></div>
                             <div class=" filter-here">
                                 <div class="row content-product-list product-list filter no-gutters mb-30">

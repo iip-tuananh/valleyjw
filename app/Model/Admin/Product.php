@@ -84,6 +84,11 @@ class Product extends BaseModel
         return $this->hasMany(ProductGallery::class, 'product_id', 'id');
     }
 
+    public function product_rates()
+    {
+        return $this->hasMany(ProductRate::class, 'product_id', 'id');
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'cate_id', 'id');
@@ -233,7 +238,10 @@ class Product extends BaseModel
                         ->with(['image'])
                         ->orderBy('sort', 'ASC');
                 },
-                'attributeValues'
+                'attributeValues',
+                'product_rates' => function ($q) {
+                    $q->with(['images'])->where('status', 2);
+                }
             ])
             ->firstOrFail();
     }

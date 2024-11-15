@@ -38,6 +38,9 @@ Route::group(['namespace' => 'Front'], function () {
     // laster buy products
     Route::get('/laster-buy-products','FrontController@lasterBuyProducts')->name('front.laster-buy-products');
 
+    // review
+    Route::post('/review/submit','FrontController@submitReview')->name('front.submit-review');
+
 });
 
 

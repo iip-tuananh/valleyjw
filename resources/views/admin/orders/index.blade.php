@@ -98,7 +98,8 @@ Quản lý đơn hàng
                 title: "Trạng thái",
                 render: function (data) {
                     return getStatus(data, @json(\App\Model\Admin\Order::STATUSES));
-                }
+                },
+                className: "text-center"
             },
             {data: 'created_at', title: 'Ngày tạo'},
             {data: 'action', orderable: false, title: "Hành động"}

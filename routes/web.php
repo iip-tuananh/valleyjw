@@ -61,6 +61,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::post('/{id}/deleteFile', 'Admin\ProductController@deleteFile')->name('products.deleteFile');
     });
 
+    // Đánh giá sản phẩm
+    Route::group(['prefix' => 'product-rates'], function () {
+        Route::get('/', 'Admin\ProductRateController@index')->name('product_rates.index');
+        Route::get('/searchData', 'Admin\ProductRateController@searchData')->name('product_rates.searchData');
+        Route::get('/{id}/show', 'Admin\ProductRateController@show')->name('product_rates.show');
+        Route::post('/update-status', 'Admin\ProductRateController@updateStatus')->name('product_rates.update.status');
+        Route::get('/{id}/getDataForEdit', 'Admin\ProductRateController@getDataForEdit')->name('product_rates.getDataForEdit');
+    });
+
     Route::group(['prefix' => 'post-categories'], function() {
         Route::get('/create', 'Admin\PostCategoryController@create')->name('PostCategory.create');
         Route::post('/', 'Admin\PostCategoryController@store')->name('PostCategory.store');

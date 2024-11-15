@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Helpers\FileHelper;
 use App\Http\Traits\ResponseTrait;
 use App\Model\Admin\Block;
 use App\Model\Admin\Category;
@@ -17,6 +18,7 @@ use App\Model\Admin\Banner;
 use App\Model\Admin\Contact;
 use App\Model\Admin\Post;
 use App\Model\Admin\PostCategory;
+use App\Model\Admin\ProductRate;
 use App\Model\Admin\Voucher;
 use DB;
 use Mail;
@@ -108,7 +110,14 @@ class FrontController extends Controller
 
             $category = Category::query()->where('id', $product->cate_id)->first();
 
-            return view('site.product_detail', compact('categories', 'product', 'productsRelated', 'category'));
+            $arr_product_rate_images = [];
+            foreach ($product->product_rates as $rate) {
+                foreach ($rate->images as $image) {
+                    $arr_product_rate_images[] = $image->path;
+                }
+            }
+
+            return view('site.product_detail', compact('categories', 'product', 'productsRelated', 'category', 'arr_product_rate_images'));
         }catch (\Exception $exception) {
             return view('site.errors');
             Log::error($exception);
@@ -339,5 +348,83 @@ class FrontController extends Controller
         return Response::json([
             'product' => $product,
         ]);
+    }
+
+    // review
+    public function submitReview(Request $request) {
+        $rule  =  [
+            'name' => 'required',
+            'email'  => 'required|email|max:255|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+            'phone'  => 'required|regex:/^(0)[0-9]{9,11}$/',
+            'rating' => 'required|numeric|min:1|max:5',
+            'title' => 'required',
+            'galleries' => 'required|array|min:1|max:5',
+            'galleries.*.image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'desc' => 'required',
+            'product_id' => 'required|exists:products,id',
+        ];
+
+        $validate = Validator::make(
+            $request->all(),
+            $rule,
+            [
+                'name.required' => 'Vui lòng nhập họ tên',
+                'phone.required' => 'Vui lòng nhập số điện thoại',
+                'phone.regex' => 'Số điện thoại không đúng định dạng',
+                'email.required' => 'Vui lòng nhập email',
+                'email.regex' => 'Email không đúng định dạng',
+                'rating.required' => 'Vui lòng đánh giá sản phẩm',
+                'rating.numeric' => 'Đánh giá không hợp lệ',
+                'rating.min' => 'Đánh giá không hợp lệ',
+                'rating.max' => 'Đánh giá không hợp lệ',
+                'title.required' => 'Vui lòng nhập tiêu đề',
+                'galleries.required' => 'Vui lòng chọn ít nhất 1 hình ảnh',
+                'galleries.array' => 'Dữ liệu không hợp lệ',
+                'galleries.min' => 'Vui lòng chọn ít nhất 1 hình ảnh',
+                'galleries.max' => 'Vui lòng chọn tối đa 5 hình ảnh',
+                'desc.required' => 'Vui lòng nhập nội dung đánh giá',
+                'galleries.*.image.image' => 'Vui lòng chọn file hình ảnh',
+                'galleries.*.image.mimes' => 'File không hợp lệ',
+                'galleries.*.image.max' => 'File không được lớn hơn 5MB',
+                'product_id.required' => 'Sản phẩm không hợp lệ',
+                'product_id.exists' => 'Sản phẩm không hợp lệ',
+            ]
+        );
+
+
+        if ($validate->fails()) {
+            return $this->responseErrors('Gửi yêu cầu thất bại!', $validate->errors());
+        }
+
+        $store_data = [
+            'product_id' => $request->product_id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'rating' => $request->rating,
+            'title' => $request->title,
+            'desc' => $request->desc,
+        ];
+
+		DB::beginTransaction();
+		try {
+			$object = new ProductRate();
+			$object->fill($store_data);
+			$object->save();
+
+            $galleries = $request->galleries;
+			foreach ($galleries as $gallery) {
+                if (isset($gallery['image'])) {
+                    $file = $gallery['image'];
+                    FileHelper::uploadFile($file, 'product_rate', $object->id, ProductRate::class, 'image', 1);
+                }
+            }
+
+			DB::commit();
+			return $this->responseSuccess('Gửi đánh giá thành công!');
+		} catch (Exception $e) {
+            DB::rollBack();
+            throw new Exception($e->getMessage());
+        }
     }
 }

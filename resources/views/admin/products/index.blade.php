@@ -138,7 +138,8 @@
                         } else {
                             return `<span class="badge badge-success">Xuất bản</span>`;
                         }
-                    }
+                    },
+                    className: "text-center"
                 },
                 {
                     data: 'state',
@@ -149,7 +150,8 @@
                         } else {
                             return `<span class="badge badge-warning">Hết hàng</span>`;
                         }
-                    }
+                    },
+                    className: "text-center"
                 },
                 {data: 'action', orderable: false, title: "Hành động"}
             ],

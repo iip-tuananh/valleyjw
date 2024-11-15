@@ -4,13 +4,14 @@
 <head>
     @include('site.partials.head')
     <!--+++++++++++++++++++++++++  CSS ++++++++++++++++++++++++-->
-    <link rel="preconnect" href="https://theme.hstatic.net">
     <link href='/site/css/plugin-min.css?v=1803' rel='stylesheet' type='text/css'
         media='all' />
     <link href='/site/css/pe-icon-7-strokes.scss.css?v=1803' rel='stylesheet'
         type='text/css' media='all' />
     <link href='/site/css/custom-styles.scss.css?v=1803' rel='stylesheet'
         type='text/css' media='all' />
+    <link href='/site/css/onireviews.css?v=1811' rel='stylesheet' type='text/css'  media='all'  />
+
     <!--+++++++++++++++++++++++++  JS ++++++++++++++++++++++++-->
     <script>
         /*! jQuery v3.5.1 | (c) JS Foundation and other contributors | jquery.org/license */
@@ -27,62 +28,6 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src='/site/js/jquery.cookie.js?v=1803'
         type='text/javascript'></script>
-    <style>
-        .grecaptcha-badge {
-            visibility: hidden;
-        }
-    </style>
-    {{-- <script type='text/javascript'>
-        window.HaravanAnalytics = window.HaravanAnalytics || {};
-        window.HaravanAnalytics.meta = window.HaravanAnalytics.meta || {};
-        window.HaravanAnalytics.meta.currency = 'VND';
-        var meta = { "page": { "pageType": "home" } };
-        for (var attr in meta) {
-            window.HaravanAnalytics.meta[attr] = meta[attr];
-        }
-        window.HaravanAnalytics.AutoTrack = true;
-    </script> --}}
-    {{-- <script>
-        //<![CDATA[
-        window.HaravanAnalytics.ga = "UA-289173692-1";
-        window.HaravanAnalytics.enhancedEcommerce = true;
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-        ga('create', window.HaravanAnalytics.ga, { cookieDomain: 'auto', siteSpeedSampleRate: '10', sampleRate: 100, allowLinker: true });
-        ga('send', 'pageview'); ga('require', 'linker'); ga('require', 'linker');
-        //]]>
-
-    </script> --}}
-    <!-- <script>
-        window.HaravanAnalytics.fb = "776936844150363";
-        //<![CDATA[
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            }; if (!f._fbq) f._fbq = n;
-            n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
-        }(window,
-            document, 'script', '//connect.facebook.net/en_US/fbevents.js');
-        // Insert Your Facebook Pixel ID below.
-        fbq('init', window.HaravanAnalytics.fb, {}, { 'agent': 'plharavan' });
-        fbq('track', 'PageView');
-        //]]>
-    </script>
-    <noscript><img height='1' width='1' style='display:none'
-            src='https://www.facebook.com/tr?id=776936844150363&amp;ev=PageView&amp;noscript=1' /></noscript> -->
-    <!-- Event snippet for PAGE_VIEW-200000541929-03/16/2023 04:21:43 conversion page -->
-    <!-- <script>
-        gtag('event', 'conversion', { 'send_to': 'AW-11120099117/i7cHCLvGopIYEK3-vLYp' });
-    </script> -->
-    {{-- <script
-        type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","name":"www.theyen.com.vn","url":"https://www.theyen.com.vn","potentialAction":{"@type":"SearchAction","target":"https://www.theyen.com.vn/search?&q={search_term_string}","query-input":"required name=search_term_string"}}</script>
-    <script src="https://www.youtube.com/iframe_api"></script> --}}
     <script async>
         if ((typeof Haravan) === 'undefined') {
             Haravan = {};
@@ -158,6 +103,25 @@
                 <span class="btt-icon-back"><i class="fa fa-long-arrow-up"></i></span>
             </div>
         </a>
+    </div>
+    <div class="pkcp-parent-container" style="bottom: 90px; right: 20px; position: fixed; z-index: 2147483647;">
+        <div>
+            <div id="pkcp" class="pkcp">
+                <a href="{{$config->facebook}}" target="_blank" rel="noopener noreferrer">
+                    <div class="pkcp-button-wrapper" style="display: block;">
+                        <div class="pkcp-button-wrapper-welcome">
+                            <div id="pkcp-button" class="pkcp-button-circle" style="width: 60px; height: 60px;">
+                            <div class="pkcp-button-icon " style="width: 60px; height: 60px; border-radius: 100%; background-color: rgb(22, 119, 255); display: flex; align-items: center; justify-content: center; box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36px" height="36px" fill="#FFFFFF" viewBox="0 0 256 256">
+                                    <path d="M181.66,106.34a8,8,0,0,1,0,11.32l-32,32a8,8,0,0,1-11.32,0L112,123.31,85.66,149.66a8,8,0,0,1-11.32-11.32l32-32a8,8,0,0,1,11.32,0L144,132.69l26.34-26.35A8,8,0,0,1,181.66,106.34ZM232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.52a8,8,0,0,1,6.54.67A88,88,0,0,0,216,128Z"></path>
+                                </svg>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
     <div id="site-overlay" class="site-overlay"></div>
     <div class="overlay-filter"></div>

@@ -40,9 +40,9 @@
                     <div class="onirvapp--shape-xs">
                         <div class="onirvapp--shape-container">
                             <div class="onirvapp--shape-background"></div>
-                            <div class="onirvapp--shape-solid" style="width: 96%"></div>
+                            <div class="onirvapp--shape-solid" style="width: {{ $product->product_rates->count() > 0 ? round($product->product_rates->sum('rating') / $product->product_rates->count()) / 5 * 100 : 0 }}%"></div>
                         </div>
-                    </div><span class="onireviewapp-loopitem-title">(5 đánh giá)</span>
+                    </div><span class="onireviewapp-loopitem-title">({{$product->product_rates->count()}} đánh giá)</span>
                 </div>
             </div>
             <h3 class="pro-name">
