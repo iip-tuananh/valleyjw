@@ -96,10 +96,11 @@ class CartController extends Controller
         $cartCollection = \Cart::getContent();
         $total_price = \Cart::getTotal();
         $total_qty = \Cart::getContent()->sum('quantity');
-        if(isset($voucher) && ($total_price >= $voucher->limit_bill_value || $total_qty >= $voucher->limit_product_qty)) {
+        // dd($total_price, $total_qty, $voucher);
+        if(isset($voucher) && (($total_price >= $voucher->limit_bill_value && $voucher->limit_bill_value > 0) || ($voucher->limit_product_qty > 0 && $total_qty >= $voucher->limit_product_qty))) {
             return Response::json(['success' => true, 'voucher' => $voucher, 'message' => 'Áp dụng mã giảm giá thành công']);
         }
-        return Response::json(['success' => false, 'message' => 'Mã giảm giá không hợp lệ']);
+        return Response::json(['success' => false, 'message' => 'Không đủ điều kiện áp mã giảm giá']);
     }
 
     // submit đặt hàng

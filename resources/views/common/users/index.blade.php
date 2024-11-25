@@ -61,7 +61,7 @@ Danh sách người dùng
 			// },
 		],
 		@if(Auth::user()->type == App\Model\Common\User::SUPER_ADMIN || Auth::user()->type == App\Model\Common\User::QUAN_TRI_VIEN)
-		create_link: "{{ route('User.create') }}"
+		// create_link: "{{ route('User.create') }}"
 		@endif
 	});
 
